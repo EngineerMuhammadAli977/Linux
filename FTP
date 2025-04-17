@@ -1,0 +1,17 @@
+sudo yum install vsftpd -y
+sudo systemctl start vsftpd
+sudo systemctl enable vsftpd
+sudo useradd ftpuser
+sudo passwd ftpuser
+sudo mkdir /home/ftpuser
+sudo chown ftpuser:ftpuser /home/ftpuser
+sudo nano /etc/vsftpd/vsftpd.conf
+anonymous_enable=NO
+local_enable=YES
+write_enable=YES
+chroot_local_user=YES
+allow_writeable_chroot=YES
+sudo systemctl restart vsftpd
+sudo firewall-cmd --permanent --add-port=21/tcp
+sudo firewall-cmd --permanent --add-service=ftp
+sudo firewall-cmd --reload
