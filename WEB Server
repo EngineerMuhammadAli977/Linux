@@ -1,0 +1,8 @@
+This project demonstrates how I deployed a web server using Apache on a Red Hat-based AWS EC2 instance, hosted a website, and made it accessible via the public IP.
+Launch EC2 Instance
+OS: Red Hat Linux (RHEL)
+Enabled Ports in Security Group: 22 (SSH), 80 (HTTP), 443 (HTTPS)
+sudo yum update -y
+sudo yum install httpd -y
+sudo systemctl start httpd
+sudo systemctl enable httpd
